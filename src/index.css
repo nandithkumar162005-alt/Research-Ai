@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 250 250;
+    --foreground: 24 24 27;
+    --card: 255 255 255;
+    --card-foreground: 24 24 27;
+    --border: 228 228 231;
+    --muted: 244 244 245;
+    --muted-foreground: 113 113 122;
+    --accent: 244 244 245;
+    --accent-foreground: 24 24 27;
+  }
+  
+  .dark {
+    --background: 15 17 21;
+    --foreground: 248 250 252;
+    --card: 22 25 31;
+    --card-foreground: 248 250 252;
+    --border: 42 48 58;
+    --muted: 30 35 43;
+    --muted-foreground: 148 163 184;
+    --accent: 30 35 43;
+    --accent-foreground: 248 250 252;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans transition-colors duration-200 selection:bg-research-indigo/30 selection:text-foreground;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card text-card-foreground border border-border rounded-2xl p-6 shadow-soft transition-all duration-300 hover:border-muted-foreground/30;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide uppercase;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2.5 border border-transparent rounded-xl shadow-sm text-sm font-medium text-white bg-research-indigo hover:bg-indigo-600 hover:shadow-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-indigo-500 transition-all;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2.5 border border-border rounded-xl shadow-sm text-sm font-medium text-foreground bg-card hover:bg-muted focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-border transition-all;
+  }
+  
+  .input-field {
+    @apply block w-full bg-card border border-border rounded-xl px-4 py-3 text-foreground placeholder-muted-foreground focus:ring-2 focus:ring-research-indigo focus:border-transparent transition-all sm:text-sm shadow-sm;
+  }
+}
+
+/* Custom scrollbar for a more premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground;
+}
